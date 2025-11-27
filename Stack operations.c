@@ -1,0 +1,39 @@
+#include <stdio.h>
+#define SIZE 5
+int stack[SIZE];
+int top = -1;
+void push (int value) {
+if (top == SIZE -1)
+    printf("stack overflow! Cannot push %d\n" , value);
+    else {
+        stack [++top] = value;
+        printf ("%d pushed to stack\n" ,value);
+    }
+}
+void pop () {
+if (top == -1)
+printf ("stack underflow! no element to pop\n");
+else
+    printf("%d popped from stack\n", stack[top--]);
+}
+void display (){
+if (top== -1)
+    printf ("stack is empty\n");
+    else {
+        printf("stack element:");
+        for (int i = top; i > 0; i--)
+            printf ("%d" , stack [i]);
+        printf ("\n");
+
+    }
+}
+int main () {
+push(30);
+push(20);
+push(10);
+display ();
+pop();
+display ();
+return 0;
+}
+
